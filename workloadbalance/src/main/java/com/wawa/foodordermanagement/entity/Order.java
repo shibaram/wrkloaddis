@@ -11,15 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name="Customer")
+//@Table(name="Order")
 */
 public class Order {	
 	 
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.ID)
 	private String orderId; 
 	private String channel;
 	private String status;
-
 	private List<OrderItem> orderItems;
 	
 	public Order() {

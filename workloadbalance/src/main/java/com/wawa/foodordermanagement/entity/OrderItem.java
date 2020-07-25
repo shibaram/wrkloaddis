@@ -14,7 +14,6 @@ public class OrderItem {
 
 	public OrderItem(Integer order_item_id, String item_name, Integer item_quantity, String order_item_status,
 			String item_type, String order_id) {
-		super();
 		this.order_item_id = order_item_id;
 		this.item_name = item_name;
 		this.item_quantity = item_quantity;

@@ -34,11 +34,6 @@ public class WordOrderController {
 		return foodOrderService.getAllOrders();
 	}
 	
-	/*
-	 * @PostMapping("/customersPortfolio") public List<CustomerPortfolio>
-	 * getAllCustomers(@RequestBody Customer[] customers){ return
-	 * customerPortfolioService.getCustomersPortfolio(customers); }
-	 */
 	
 	/*
 	 * @ExceptionHandler public ResponseEntity<CustomerErrorResponse>
