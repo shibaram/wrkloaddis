@@ -30,19 +30,30 @@ public class OrderRequestQueue {
 		List<OrderItem> orderItems = orderRequest.getOrderItems();
 		
 		boolean service_order_flag = false;
+		boolean veg_counter_available = false;
+		boolean nonveg_counter_available = false;
 		
 		if(orderItems!= null && orderItems.size() > 0 ) {
 			
 			for(OrderItem item : orderItems) {
-				Integer order_item_id = item.getOrder_item_id();
-				String item_name = item.getItem_name();
 				
-				Integer item_quantity = item.getItem_quantity();
-				String order_item_status;
+				String item_type = item.getItem_type();
 				
-				String item_type;
-				String order_id;
 				
+				OrderConsolidator orderConsolidator = new OrderConsolidator();
+				if("NONVEG".equalsIgnoreCase(item_type)) {
+					if(orderConsolidator.checkNonVegCounterStaffAvailibility()) {
+						nonveg_counter_available = true;
+					}
+				}else if("VEG".equalsIgnoreCase(item_type)) {
+					if(orderConsolidator.checkVegCounterStaffAvailibility()) {
+						veg_counter_available = true;
+					}
+				}
+			}
+			
+			if(nonveg_counter_available || veg_counter_available) {
+				return true;
 			}
 		}else {
 			return false;
@@ -82,11 +93,6 @@ public class OrderRequestQueue {
 	 */
 	        
 	    
-	 
-	 
-
-
-
 	public static String getOrderId() {
 		 return "UISN12224";
 	 }

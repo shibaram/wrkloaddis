@@ -8,14 +8,14 @@ public class Staff {
 	
 	private String counter_type;
 	
-	private Integer contact_number;
+	private String contact_number;
 	private String skill_type;
 	
 	public Staff() {
 		
 	}
 	
-	public Staff(Integer staff_id, String f_name, String l_name, String counter_type, Integer contact_number,
+	public Staff(Integer staff_id, String f_name, String l_name, String counter_type, String contact_number,
 			String skill_type) {
 		super();
 		this.staff_id = staff_id;
@@ -58,11 +58,11 @@ public class Staff {
 		this.counter_type = counter_type;
 	}
 
-	public Integer getContact_number() {
+	public String getContact_number() {
 		return contact_number;
 	}
 
-	public void setContact_number(Integer contact_number) {
+	public void setContact_number(String contact_number) {
 		this.contact_number = contact_number;
 	}
 

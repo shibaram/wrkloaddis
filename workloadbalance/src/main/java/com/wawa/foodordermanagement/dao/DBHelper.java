@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.wawa.foodordermanagement.businesslogic.CounterStaffGroup;
 import com.wawa.foodordermanagement.entity.MenuItem;
 import com.wawa.foodordermanagement.entity.Order;
 import com.wawa.foodordermanagement.entity.OrderItem;
+import com.wawa.foodordermanagement.entity.Staff;
 
 @Repository
 public class DBHelper {
@@ -17,14 +19,16 @@ public class DBHelper {
 	
 	static {
 		
-		String pizza_url = "https://www.refrigeratedfrozenfood.com/ext/resources/NEW_RD_Website/DefaultImages/default-pizza.jpg?1430942592";
-		String burger_url = "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cheeseburger.jpg";
+		String veg_pizza_url = "https://www.refrigeratedfrozenfood.com/ext/resources/NEW_RD_Website/DefaultImages/default-pizza.jpg?1430942592";
+		String nonveg_pizza_url = "https://amindfulkitchen.com/wp-content/uploads/gf-buffalo-chicken-pizza-1.jpg";
+		String veg_burger_url = "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cheeseburger.jpg";
+		String nonveg_burger_url = "https://f0.pngfuel.com/png/950/114/chicken-burger-illustration-png-clip-art.png";
 		
 		//MenuItem(long menu_item_id, String item_id, String item_type, String item_description)
-		MenuItem menuItem1 = new MenuItem(10000, "CHIBUR001", "NON-VEG", "Chicken Burger", 2.99, burger_url);
-		MenuItem menuItem2 = new MenuItem(10001, "VEGBUR001", "VEG", "Veg Burger", 1.99, burger_url);
-		MenuItem menuItem3 = new MenuItem(10002, "VEGPIZ001", "VEG", "Veg Pizza", 5.99, pizza_url);
-		MenuItem menuItem4 = new MenuItem(10003, "CHIPIZ001", "NON-VEG", "Chicekn Pizza", 6.99, pizza_url);
+		MenuItem menuItem1 = new MenuItem(10000, "CHIBUR001", "NON-VEG", "Chicken Burger", 2.99, nonveg_burger_url);
+		MenuItem menuItem2 = new MenuItem(10001, "VEGBUR001", "VEG", "Veg Burger", 1.99, veg_burger_url);
+		MenuItem menuItem3 = new MenuItem(10002, "VEGPIZ001", "VEG", "Veg Pizza", 5.99, veg_pizza_url);
+		MenuItem menuItem4 = new MenuItem(10003, "CHIPIZ001", "NON-VEG", "Chicekn Pizza", 6.99, nonveg_pizza_url);
 				
 		menuItemsDbData.add(menuItem1);
 		menuItemsDbData.add(menuItem2);
@@ -67,6 +71,22 @@ public class DBHelper {
 		allOrdersDbData.add(item1);
 		allOrdersDbData.add(item12);
 		
+		//Simulate Staff login
+		
+		CounterStaffGroup counterStaffGroup = new CounterStaffGroup();
+		
+		//Staff(Integer staff_id, String f_name, String l_name, String counter_type, Integer contact_number,
+		//String skill_type)
+		Staff emp1 = new Staff(154, "Suresh", "Sharma", "PIZZA", "7899877788", "VEG");
+		Staff emp2 = new Staff(154, "Suresh", "Sharma", "BURGER", "7899877788", "VEG");
+		Staff emp3 = new Staff(154, "Suresh", "Sharma", "PIZZA-BURGER", "7899877788", "NONVEG");
+		Staff emp4 = new Staff(154, "Suresh", "Sharma", "PIZZA-BURGER", "7899877788", "VEG");
+		
+		counterStaffGroup.addVegStaff(emp1);
+		counterStaffGroup.addVegStaff(emp2);
+		counterStaffGroup.addNonVegStaff(emp3);
+		counterStaffGroup.addNonVegStaff(emp4);
+		
 	} 
 	
 	
@@ -81,6 +101,13 @@ public class DBHelper {
 	public static List<Order> getAllOrderDataFromDb(){
 		return allOrdersDbData;
 	}
+	
+	public static Order saveOrder(Order order) {
+		Order order1 = new Order("1111", "web", "InProgress");
+		return order1;
+	}
+
+	
 
 }
 

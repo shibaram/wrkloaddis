@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wawa.foodordermanagement.dao.MenuItemDAO;
+import com.wawa.foodordermanagement.dao.OrderDAO;
 import com.wawa.foodordermanagement.entity.MenuItem;
 import com.wawa.foodordermanagement.entity.Order;
 
@@ -15,6 +16,16 @@ public class FoodOrderServiceImpl implements FoodOrderService {
 	@Autowired
 	private MenuItemDAO menuItemDAO;
 	
+	@Autowired
+	private OrderDAO orderDAO;
+	
+
+
+	@Override
+	public Order saveOrder(Order order) {
+		return orderDAO.saveOrder(order);
+	}
+
 
 	@Override
 	public List<MenuItem> getAllMenuItems() {
@@ -27,13 +38,13 @@ public class FoodOrderServiceImpl implements FoodOrderService {
 	public List<Order> getAllOrders() {		
 		return menuItemDAO.getAllOrders();
 	}
+
+
+	@Override
+	public boolean getOrderStatus(String orderId) {
+		
+		return false;
+	}
 	
-	/*
-	 * @Override public List<Customer> getAllMenuItems() {
-	 * 
-	 * return customerDao.getAllCustomers(); }
-	 * 
-	 * @Override public void addCustomer(Customer c) { customerDao.addCustomer(c); }
-	 */
 
 }
