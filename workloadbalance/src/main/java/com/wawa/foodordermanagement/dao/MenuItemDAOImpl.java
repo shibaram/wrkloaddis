@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wawa.foodordermanagement.entity.Customer;
 import com.wawa.foodordermanagement.entity.MenuItem;
+import com.wawa.foodordermanagement.entity.Order;
 
 @Repository
 public class MenuItemDAOImpl implements MenuItemDAO{
@@ -15,10 +16,13 @@ public class MenuItemDAOImpl implements MenuItemDAO{
 	DBHelper dbHelper;
 
 	@Override
-	public List<MenuItem> getAllMenuItems() {
-
-		
+	public List<MenuItem> getAllMenuItems() {		
 		return DBHelper.getAllMenuItemsDataFromDb();
+	}
+	
+	@Override
+	public List<Order> getAllOrders() {		
+		return DBHelper.getAllOrderDataFromDb();
 	}
 
 }

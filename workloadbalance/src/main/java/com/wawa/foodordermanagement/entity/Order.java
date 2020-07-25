@@ -1,5 +1,9 @@
 package com.wawa.foodordermanagement.entity;
 
+import java.util.List;
+
+import com.wawa.foodordermanagement.entity.OrderItem;
+
 /*import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +20,7 @@ public class Order {
 	private String channel;
 	private String status;
 
+	private List<OrderItem> orderItems;
 	
 	public Order() {
 		
@@ -58,8 +63,12 @@ public class Order {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-	
-	
+
+	public List<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.wawa.foodordermanagement.dao.MenuItemDAO;
 import com.wawa.foodordermanagement.entity.MenuItem;
+import com.wawa.foodordermanagement.entity.Order;
 
 @Service
 public class FoodOrderServiceImpl implements FoodOrderService {
@@ -21,6 +22,12 @@ public class FoodOrderServiceImpl implements FoodOrderService {
 		return menuItemDAO.getAllMenuItems();
 	}
 
+	
+	@Override
+	public List<Order> getAllOrders() {		
+		return menuItemDAO.getAllOrders();
+	}
+	
 	/*
 	 * @Override public List<Customer> getAllMenuItems() {
 	 * 

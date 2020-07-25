@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.wawa.foodordermanagement.entity.MenuItem;
+import com.wawa.foodordermanagement.entity.Order;
+import com.wawa.foodordermanagement.entity.OrderItem;
 
 @Repository
 public class DBHelper {
@@ -25,6 +27,37 @@ public class DBHelper {
 		menuItemsDbData.add(item4);
 		
 		
+	} 
+	
+	
+	private static volatile List<Order> allOrdersDbData = new ArrayList<Order>();
+	static {
+		ArrayList<OrderItem> arrList = new ArrayList();		
+		OrderItem oi1 = new OrderItem(1000,"CHK-1",2,"InProgress","","");		
+		OrderItem oi2 = new OrderItem(1001,"CHK-2",2,"InProgress","","");
+		OrderItem oi3 = new OrderItem(1002,"CHK-3",2,"InProgress","","");
+		OrderItem oi4 = new OrderItem(1003,"CHK-4",2,"InProgress","","");
+		arrList.add(oi1);
+		arrList.add(oi2);
+		arrList.add(oi3);
+		arrList.add(oi4);
+		Order item1 = new Order("10000", "Mobile", "InProgress");
+		item1.setOrderItems(arrList);
+		
+		ArrayList<OrderItem> arrList11 = new ArrayList();		
+		OrderItem oi11 = new OrderItem(2000,"CHK-1",2,"InProgress","","");		
+		OrderItem oi22 = new OrderItem(2001,"CHK-2",2,"InProgress","","");
+		OrderItem oi33 = new OrderItem(2002,"CHK-3",2,"InProgress","","");
+		OrderItem oi44 = new OrderItem(2003,"CHK-4",2,"InProgress","","");
+		arrList.add(oi11);
+		arrList.add(oi22);
+		arrList.add(oi33);
+		arrList.add(oi44);
+		Order item12 = new Order("10000", "Mobile", "InProgress");
+		item12.setOrderItems(arrList);	
+				
+		allOrdersDbData.add(item1);
+		allOrdersDbData.add(item12);
 	}
 	
 	DBHelper(){
@@ -35,7 +68,9 @@ public class DBHelper {
 		return menuItemsDbData;
 	}
 	
-	
+	public static List<Order> getAllOrderDataFromDb(){
+		return allOrdersDbData;
+	}
 
 }
 

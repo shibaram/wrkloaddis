@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wawa.foodordermanagement.entity.MenuItem;
 import com.wawa.foodordermanagement.service.FoodOrderService;
+import com.wawa.foodordermanagement.entity.Order;
 
 //    /order/menuitem
 
@@ -24,6 +25,11 @@ public class WordOrderController {
 	@GetMapping("/menuitem")
 	public List<MenuItem> getAllMenuItems(){
 		return foodOrderService.getAllMenuItems();
+	}
+	
+	@GetMapping("/getAllOrders")
+	public List<Order> getAllOrders(){
+		return foodOrderService.getAllOrders();
 	}
 	
 	/*
