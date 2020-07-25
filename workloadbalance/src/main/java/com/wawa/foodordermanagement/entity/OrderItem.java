@@ -32,4 +32,31 @@ public class OrderItem {
 		this.item_type = item_type;
 		this.order_id = order_id;
 	}
+
+	public Integer getOrder_item_id() {
+		return order_item_id;
+	}
+
+	public String getItem_name() {
+		return item_name;
+	}
+
+	public Integer getItem_quantity() {
+		return item_quantity;
+	}
+
+	public String getOrder_item_status() {
+		return order_item_status;
+	}
+
+	public String getItem_type() {
+		return item_type;
+	}
+
+	public String getOrder_id() {
+		return order_id;
+	}
+	
+	
+	
 }

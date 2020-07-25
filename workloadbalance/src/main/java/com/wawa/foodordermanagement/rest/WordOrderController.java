@@ -27,7 +27,7 @@ public class WordOrderController {
 		return foodOrderService.getAllMenuItems();
 	}
 	
-	@GetMapping("/getAllOrders")
+	@GetMapping("/customerorders")
 	public List<Order> getAllOrders(){
 		return foodOrderService.getAllOrders();
 	}
